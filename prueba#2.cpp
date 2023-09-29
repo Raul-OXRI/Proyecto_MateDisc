@@ -2,10 +2,11 @@
 #include <conio.h>
 #include <math.h>
 #include <stdio.h>
+#include <bits/stdc++.h>
 
 using namespace std;
 
-//fucnion para hacer la combinacion
+//funcion para hacer la combinacion
 int comb(int n, int k){
 	if(k==0 || k==n){
 		return 1;
@@ -15,11 +16,20 @@ int comb(int n, int k){
 	}
 }
 
+//funcion para hacer el factorial 
+int factorial(int n)
+{
+	int f = 1;
+	for (int i = 2; i <= n; i++)
+		f *= i;	
+	return f;
+}
 
 main(){
 		int m;
-		float a,b,t;
+		int a,b,t;
 		int c,d,n,k,s;
+		int nFact = factorial(n);
 		cout<<"--------------------------------------------------";	
 		cout<<"\n||                                              ||";
 		cout<<"\n||\t1. expancion de binomio de newton\t||";
@@ -34,8 +44,22 @@ main(){
 		system("cls");
 		switch (m){
 			case 1:
-				cout<<"Ingrese el primer valor";
+				cout<<"Ingrese el num A";
+				cin>>a;
+				cout<<"Ingrese el num B";
+				cin>>b;
+				cout<<"Ingrese la potencia";
+				cin>>n;
 				
+				for (int i = 0; i < n + 1; i++) {
+					int niFact = factorial(n - i);
+					int iFact = factorial(i);
+					int aPow = pow(a, n - i);
+					int xPow = pow(b, i);
+					cout << (nFact * aPow * xPow) /
+					(niFact * iFact) << " ";
+				}
+				return 0;
 				break;
 			case 2:
 				cout<<"Introducir los coeficinetes"<<endl;
